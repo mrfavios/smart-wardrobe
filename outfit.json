@@ -1,0 +1,14 @@
+[
+    {
+        "shirt": "shirt_exmaple4.jpeg",
+        "pant": "pants_example4.jpeg",
+        "shoe": "shoes_example5.jpeg",
+        "season": "s"
+    },
+    {
+        "shirt": "shirt_exmaple1.jpeg",
+        "pant": "pants_example5.jpeg",
+        "shoe": "shoes_example1.jpeg",
+        "season": "w"
+    }
+]

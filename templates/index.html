@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartWardrobe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flex-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ref-img {
+            width: 200px;
+            height: 200px;
+        }
+        a{
+        
+        	color: blue;
+        
+        }
+    </style>
+</head>
+
+
+<body>
+    
+    <h1 style="display: inline-block">SmartWardrobe</h1>
+    <select id="season-select" name="season" style="display: inline-block; float: right; margin-top: 20px; margin-right: 20px;">
+	  <option value="s" selected="selected">SUMMER</option>
+	  <option value="w">WINTER</option>
+    </select>
+    <div class="flex-container">
+            <div class="flex-column">
+	    <img src="{{ url_for('static', filename='img/shirts/' + shirt_image) }}">
+	    <a href="{{ url_for('index', shirt_index=shirt_index-1, pant_index=pant_index, shoe_index=shoe_index) }}">Previous</a>
+	    <a href="{{ url_for('index', shirt_index=shirt_index+1, pant_index=pant_index, shoe_index=shoe_index) }}">Next</a>
+	    </div>
+	    <div class="flex-column">
+	    <img src="{{ url_for('static', filename='img/pants/' + pant_image) }}">
+	    <a href="{{ url_for('index', shirt_index=shirt_index, pant_index=pant_index-1, shoe_index=shoe_index) }}">Previous</a>
+	    <a href="{{ url_for('index', shirt_index=shirt_index, pant_index=pant_index+1, shoe_index=shoe_index) }}">Next</a>
+	    </div>
+	    <div class="flex-column">
+	    <img src="{{ url_for('static', filename='img/shoes/' + shoe_image) }}">
+	    <a href="{{ url_for('index', shirt_index=shirt_index, pant_index=pant_index, shoe_index=shoe_index-1) }}">Previous</a>
+	    <a href="{{ url_for('index', shirt_index=shirt_index, pant_index=pant_index, shoe_index=shoe_index+1) }}">Next</a>
+	    </div>
+   </div>
+   <div class="flex-container"> 
+    	    <a href="{{ url_for('outfit_saved') }}" style="margin-right: 100px">Outfits Saved</a>
+	    <a href="#" onclick="saveOutfit('{{ url_for('save_outfit', shirt=shirt_image, pant=pant_image, shoe=shoe_image, season=0)}}')" style="margin-left: 100px">Save Outfit</a>
+
+<script>
+function saveOutfit(url, season) {
+  var seasonValue = document.getElementById("season-select").value;
+  
+  url = url.replace(/.$/, '');
+  
+  url += encodeURIComponent(seasonValue);
+  
+  window.location.href = url;
+}
+</script>
+
+   </div>
+</body>
+</html>
+
