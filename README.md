@@ -6,15 +6,15 @@ This is a Python and Flask-based project for managing outfits in a smart wardrob
 
 To get started, clone the project to your local machine using the following command:
 
-git clone https://github.com/mrfavios/smart-wardrobe.git
+<code>git clone https://github.com/mrfavios/smart-wardrobe.git</code>
 
 Once you have cloned the project, navigate to the project directory and install the necessary packages using the following commands:
 
-pip install Flask
-pip install json
-pip install socket
+    <code>pip install Flask</code>
+    <code>pip install json</code>
+    <code>pip install socket</code>
 
-Next, you will need to download and save images of your clothing items to the appropriate folders in the static/img directory. The images should be saved to the following folders:
+Next, you will need to save images of your clothing items to the appropriate folders in the static/img directory. The images should be saved to the following folders:
 
     static/img/pants
     static/img/shirts
@@ -26,7 +26,7 @@ To run the project, open a terminal window and navigate to the project directory
 
 python app.py
 
-This will start the Flask application and you can access the smart wardrobe system by opening your web browser and navigating to http://(your ip):5000.
+This will start the Flask application and you can access the smart wardrobe system by opening your web browser and navigating to http://(your local ip):5000.
 
 <h2>How it Works</h2>
 
