@@ -10,9 +10,9 @@ To get started, clone the project to your local machine using the following comm
 
 Once you have cloned the project, navigate to the project directory and install the necessary packages using the following commands:
 
-    <code>pip install Flask</code>
-    <code>pip install json</code>
-    <code>pip install socket</code>
+<code>pip install Flask</code>
+<code>pip install json</code>
+<code>pip install socket</code>
 
 Next, you will need to save images of your clothing items to the appropriate folders in the static/img directory. The images should be saved to the following folders:
 
@@ -24,7 +24,7 @@ The project comes with pre-saved outfits, which can be found in the outfit.json 
 
 To run the project, open a terminal window and navigate to the project directory. Then, run the following command:
 
-python app.py
+<code>python app.py</code>
 
 This will start the Flask application and you can access the smart wardrobe system by opening your web browser and navigating to http://(your local ip):5000.
 
