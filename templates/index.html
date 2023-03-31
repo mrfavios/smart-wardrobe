@@ -29,6 +29,61 @@
         	color: blue;
         
         }
+        
+        .modal-background {
+	  display: none;
+	  position: fixed;
+	  z-index: 999;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	.modal-content {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  width: 80%;
+	  max-width: 600px;
+	  background-color: white;
+	  padding: 20px;
+	  border-radius: 10px;
+	}
+
+	#close-modal {
+	  position: absolute;
+	  top: 10px;
+	  right: 10px;
+	  font-size: 20px;
+	  font-weight: bold;
+	  border: none;
+	  background-color: transparent;
+	  cursor: pointer;
+	}
+
+	#ok-button {
+	  margin-top: 20px;
+	  padding: 10px 20px;
+	  background-color: #2d6ea6;
+	  color: white;
+	  font-size: 18px;
+	  border: none;
+	  border-radius: 5px;
+	  cursor: pointer;
+	}
+
+	#ok-button:hover {
+	  background-color: #13568c;
+	}
+
+	.modal-background.active {
+	  display: flex;
+	} 
+	
+        
     </style>
 </head>
 
@@ -36,10 +91,62 @@
 <body>
     
     <h1 style="display: inline-block">SmartWardrobe</h1>
+    <a id="plugin-button">Plugin Installed</a>
+    
+    
+<div class="modal-background" id="modal-background">
+  <div class="modal-content" id="modal-content">
+    <button id="close-modal">X</button>
+    <h2>Plugins Installed</h2>
+    
+    {% for plugin in plugins %}
+        <h4>{{ plugin }}</h4>
+    {% endfor %}
+    
+    <button id="ok-button">Ok</button>
+  </div>
+</div>
+
+
+
+
+<script>
+	const modalBackground = document.getElementById('modal-background');
+	const pluginbutton = document.getElementById('plugin-button');
+	const closeModalButton = document.getElementById('close-modal');
+	const okButton = document.getElementById('ok-button');
+	
+	pluginbutton.addEventListener('click', openModal);
+	closeModalButton.addEventListener('click', closeModal);
+	okButton.addEventListener('click', closeModal);
+
+	function openModal() {
+	  modalBackground.classList.add('active');
+	}
+
+	function closeModal() {
+	  modalBackground.classList.remove('active');
+	}
+ 	
+</script>
+
+    
+    
+    
+    
     <select id="season-select" name="season" style="display: inline-block; float: right; margin-top: 20px; margin-right: 20px;">
 	  <option value="s" selected="selected">SUMMER</option>
 	  <option value="w">WINTER</option>
     </select>
+
+   </div>
+   
+   {% for topcode in topcodes %}
+	
+	{{ topcode|safe }}
+
+   {% endfor %}
+   
     <div class="flex-container">
             <div class="flex-column">
 	    <img src="{{ url_for('static', filename='img/shirts/' + shirt_image) }}">
@@ -74,6 +181,14 @@ function saveOutfit(url, season) {
 </script>
 
    </div>
+   
+   
+   {% for buttomcode in buttomcodes %}
+	
+	{{ buttomcode|safe }}
+
+   {% endfor %}
+   
 </body>
 </html>
 

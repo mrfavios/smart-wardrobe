@@ -50,7 +50,15 @@
     <button onclick="scrollToSection('winter')">Winter</button>
   </div>
 </div>
-    
+
+   <br>
+   <br>
+   
+   {% for topcode in topcodes %}
+	
+	{{ topcode|safe }}
+
+   {% endfor %}    
     
     <h2 id="summer" style="text-align: center; margin-top: 100px;">Summer</h2>
     
@@ -84,7 +92,14 @@
 	  }
 	}
     </script>
-    
+   
+   
+   {% for buttomcode in buttomcodes %}
+	
+	{{ buttomcode|safe }}
+
+   {% endfor %}
+       
 </body>
 </html>
 
