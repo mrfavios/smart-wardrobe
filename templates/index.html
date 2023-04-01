@@ -99,8 +99,8 @@
     <button id="close-modal">X</button>
     <h2>Plugins Installed</h2>
     
-    {% for plugin in plugins %}
-        <h4>{{ plugin }}</h4>
+    {%for i in range(0, len)%}
+         <a href="{{ pluginspage[i] }}"<h4>{{ plugins[i] }}</h4></a>
     {% endfor %}
     
     <button id="ok-button">Ok</button>

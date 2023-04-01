@@ -84,14 +84,24 @@ def index():
     topcodes = []
     buttomcodes = []
     
+    ppage = []
+    
     for i in plugins:
     	
     	if i.htmlpage == "index.html":
     		i.setHtml()
     		topcodes.append(i.topcode)
     		buttomcodes.append(i.buttomcode)
+    		ppage.append("/")
+    	
+    	elif i.htmlpage != "outfit_saved.html":
+    		
+    		ppage.append("plugin/"+i.htmlpage)
+    	
+    	else:
+    		ppage.append("outfit_saved.html")
     
-    return render_template("index.html", plugins=plugins_names, topcodes=topcodes, buttomcodes=buttomcodes, shirts=shirts, pants=pants, shoes=shoes, shirt_image=shirt_image, pant_image=pant_image, shoe_image=shoe_image, shirt_index=shirt_index, pant_index=pant_index, shoe_index=shoe_index)
+    return render_template("index.html", plugins=plugins_names, pluginspage=ppage, len=len(plugins_names), topcodes=topcodes, buttomcodes=buttomcodes, shirts=shirts, pants=pants, shoes=shoes, shirt_image=shirt_image, pant_image=pant_image, shoe_image=shoe_image, shirt_index=shirt_index, pant_index=pant_index, shoe_index=shoe_index)
 
 @app.route("/save_outfit/<shirt>/<pant>/<shoe>/<season>")
 def save_outfit(shirt, pant, shoe, season):
